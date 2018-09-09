@@ -1,44 +1,4 @@
-<!-- HTTPS -->
 
-{{ if .Site.Params.forcehttps }}
-<script type="text/javascript">
-    var baseURL = '{{ .Site.BaseURL }}';
-    var host = baseURL.substring(0, baseURL.length - 1).replace(/\//g, '');
-    if ((host === window.location.host) && (window.location.protocol !== 'https:')) {
-        window.location.protocol = 'https:';
-    }
-</script>
-{{ end }}
-
-<!-- CSS -->
-
-{{ if .Site.Params.highlightjs }}
-<link rel="stylesheet" href="/css/default.min.css">
-{{ end }}
-
-<!-- Fonts and icon CSS -->
-{{ if .Site.Params.cachebuster }}
-
-    {{ $t := now }}
-    <link rel="stylesheet" href="/css/reset.css?t={{$t}}">
-    <link rel="stylesheet" href="/css/pygments.css?t={{$t}}">
-    <link rel="stylesheet" href="/css/main.css?t={{$t}}">
-    <link rel="stylesheet" href="/css/fonts.css?t={{$t}}">
-
-    {{range .Site.Params.extracssfiles}}
-        <link rel="stylesheet" href="{{.}}?t={{$t}}">
-    {{ end }}
-
-{{ else }}
-
-    <link rel="stylesheet" href="/css/reset.css">
-    <link rel="stylesheet" href="/css/pygments.css">
-    <link rel="stylesheet" href="/css/main.css">
-    {{range .Site.Params.extracssfiles}}
-        <link rel="stylesheet" href="{{.}}">
-    {{end}}
-
-{{ end }}
 
 <!-- Icon -->
 <link rel="shortcut icon"
